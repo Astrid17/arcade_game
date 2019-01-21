@@ -25,6 +25,7 @@ var minutes = 0;
 var hours = 0;
 let time = document.querySelector('.time');
 var h2 = document.querySelector("h2");
+let modul1 = document.getElementsByClassName(".start");
 
 function add() {
 
@@ -59,6 +60,19 @@ function clearTime() {
 
 }
 //  timer();
+
+function StartGame(){
+    modul1.classList.add("show");
+    const player = new Hero();
+    const cocinelle1 = new Enemy(-101,0,200);
+    const cocinelle2 = new Enemy(-101,83,300);
+    const cocinelle3 = new Enemy(-101,(83*2),300);
+    const allEnemies = [];
+    allEnemies.push(cocinelle1);
+    allEnemies.push(cocinelle2);
+    allEnemies.push(cocinelle3);
+}
+StartGame();
 class Hero {
     constructor(){
         this.x = 0;
@@ -189,14 +203,7 @@ Enemy.prototype.render = function() {
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-const player = new Hero();
-const cocinelle1 = new Enemy(-101,0,200);
-const cocinelle2 = new Enemy(-101,83,300);
-const cocinelle3 = new Enemy(-101,(83*2),300);
-const allEnemies = [];
-allEnemies.push(cocinelle1);
-allEnemies.push(cocinelle2);
-allEnemies.push(cocinelle3);
+
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
