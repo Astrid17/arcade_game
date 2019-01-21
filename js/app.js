@@ -23,11 +23,11 @@ class Hero {
     constructor(){
         this.x = 0;
         this.y = 0;
-        this.horiz = 101;
-        this.vert = 83;
+        this.stepWidth = 101;
+        this.jumpHeight = 83;
         this. sprite ='images/char-cat-girl.png';
-        this.startX = this.horiz * 2;
-        this.startY = (this.vert * 4) + 60;
+        this.startX = this.stepWidth* 2;
+        this.startY = (this.jumpHeight * 4) + 60;
         this.x = this.startX;
         this.y = this.startY;
     }
@@ -39,25 +39,25 @@ class Hero {
 
     handleInput(input){
         if(input==='right'){
-            if (this.x <this.horiz *4){
-                this.x+=this.horiz;
+            if (this.x <this.stepWidth *4){
+                this.x+=this.stepWidth;
             } 
         }
         else if(input==='left'){
             if(this.x>0){
-                this.x-=this.horiz;
+                this.x-=this.stepWidth;
             }
             
         }
         else if(input==='up'){
             if(this.y>0){
-                this.y-=this.vert;
+                this.y-=this.jumpHeight;
             }
             
         }
         else if(input==='down'){
-            if(this.y< this.vert*4){
-                this.y+=this.vert;
+            if(this.y< this.jumpHeight*4){
+                this.y+=this.jumpHeight;
             }
             
         }
@@ -65,17 +65,21 @@ class Hero {
     update(){
         for(let enemy of allEnemies){
             // console.log(enemy);
-            console.log(this.x,enemy.x);
-            console.log(this.y,enemy.y);
-            if(this.x===enemy.x){
-                console.log("same column!");
-                
-            }
-            if(this.y===enemy.y){
+            
+            if(this.y===enemy.y && enemy.x<this.x && this.x<enemy.x+101  ){
                 console.log(" same row");
-                
+                console.log(" same column");
+                console.log("Hit");
+                this.x=this.startX;
+                this.y=this.startY;
             }
+            
         }
+        console.log(this.y);
+     if(this.y===-23){
+            console.log("Win!");
+        }
+        
                 // Check collision here
                     // Did player x and y collide with enemy?
                 // Check win here?
@@ -85,16 +89,16 @@ class Hero {
 
 
 // Enemies our player must avoid
-// var Enemy = function()
+
 var Enemy = function(x,y, speed){
     
     this.x = 0;
     this.y = y+60;
     this.speed = speed;
-    this.horiz = 101;
+    this.stepWidth= 101;
     this.sprite = 'images/enemy-bug.png';
-    this.boundary = this.horiz * 5;
-    this.resetPos = -this.horiz;
+    this.boundary = this.stepWidth * 5;
+    this.resetPos = -this.stepWidth;
     
 
     
