@@ -16,9 +16,49 @@
                 // Update player's x and y property according to input
             // Reset Hero
                 // Set x and y to starting x and y
+var timerCount;
+let timerPause = false;
+let timerStart = false;
+let delay = 1200;
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
+let time = document.querySelector('.time');
+var h2 = document.querySelector("h2");
 
-                
-                
+function add() {
+
+    seconds++;
+    if (seconds >= 60) {
+        seconds = 0;
+        minutes++;
+        if (minutes >= 60) {
+            minutes = 0;
+            hours++;
+        }
+    }
+    h2.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+    timer();
+}
+
+function timer() {
+
+    timerCount = setTimeout(add, 1000);
+    timerStart = true;
+}
+
+//Resets Timer 
+function clearTime() {
+
+    seconds = 0;
+    minutes = 0;
+    hours = 0;
+    h2.innerHTML = "00:00:00";
+
+
+}
+//  timer();
 class Hero {
     constructor(){
         this.x = 0;

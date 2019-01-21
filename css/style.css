@@ -2,3 +2,14 @@ body {
     text-align: center;
     background: green;
 }
+.score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+    color: #e9e9f1;
+}
+.timer {
+    display: inline-block;
+    margin: 0 1rem;
+    color: #e9e9f1;
+}
