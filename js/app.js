@@ -26,6 +26,7 @@ var hours = 0;
 let time = document.querySelector('.time');
 var h2 = document.querySelector("h2");
 let modul1 = document.getElementById("start");
+let player = document.querySelector(".player");
 const allEnemies = [];
 
 function add() {
@@ -123,11 +124,7 @@ class Hero {
      if(this.y===-23){
             console.log("Win!");
         }
-        
-                // Check collision here
-                    // Did player x and y collide with enemy?
-                // Check win here?
-                    // Did player x and y reach final tile?
+        // Check collision here // Did player x and y collide with enemy? // Check win here?// Did player x and y reach final tile?
     }
 };
 
@@ -193,12 +190,27 @@ Enemy.prototype.render = function() {
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
+
 function startGame(){
     modul1.classList.add("show");
+    player.addEventListener("click", function playerButton(e) {
+        const target = e.target;
+        if(target.classList.contains("button1")){
+            const player = new Hero();
+            Hero.sprite = 'images/char-boy.png';
+            modul1.classList.remove("show");
+            
+        }
+    });
    
 }
+
+/*const player1 = new Hero('images/char-cat-girl.png');
+const player2 = new Hero('images/char-boy.png');
+const player3 = new Hero('images/char-horn-girl.png');
+const player4 = new Hero('images/char-pink-girl.png');
+const player5 = new Hero('images/char-princess-girl.png');*/
 startGame();
-const player = new Hero();
 const cocinelle1 = new Enemy(-101,0,200);
 const cocinelle2 = new Enemy(-101,83,300);
 const cocinelle3 = new Enemy(-101,(83*2),300);
@@ -206,6 +218,7 @@ const cocinelle3 = new Enemy(-101,(83*2),300);
 allEnemies.push(cocinelle1);
 allEnemies.push(cocinelle2);
 allEnemies.push(cocinelle3);
+
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {

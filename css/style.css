@@ -1,7 +1,22 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
 body {
+    display: flex;
     text-align: center;
     background: green;
-    
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 .score-panel {
     text-align: left;
@@ -15,12 +30,15 @@ body {
     color: #e9e9f1;
 }
 .overlay {
-     position: center; 
-    background: white;
-     transition: opacity 500ms; 
-     visibility: hidden; 
+     position: fixed; 
+     top: 0;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: white;
+     transition: opacity 500ms;visibility: hidden; 
      opacity: 0; 
-    flex-direction: row;
+     flex-direction: row; 
 }
 
  .overlay:target { 
@@ -40,7 +58,7 @@ body {
     border-radius: 5px;
     width: 60%;
     height: 40%;
-    position: center;
+    position: relative;
     transition: all 5s ease-in-out;
     font-family: 'Gloria Hallelujah', cursive;
     text-align: center;  
@@ -61,9 +79,7 @@ body {
     text-decoration: none;
     color: rgb(77, 6, 105);
 }
-.modul .close:hover {
-    color: pink;
-}
+
 .modul .player {
     text-align: center;
     vertical-align: middle;
@@ -71,4 +87,7 @@ body {
 .show {
     visibility: visible !important;
     opacity: 100 !important;
+}
+.modul .close:hover {
+    color: pink;
 }
