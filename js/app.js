@@ -27,7 +27,11 @@ let time = document.querySelector('.time');
 var h2 = document.querySelector("h2");
 let modul1 = document.getElementById("start");
 let spieler= document.querySelector(".player");
+let startKnopf= document.querySelector(".startButton");
 const allEnemies = [];
+let counter = document.querySelector(".score");
+
+            
 
 function add() {
 
@@ -70,7 +74,7 @@ class Hero {
         this.y = 0;
         this.stepWidth = 101;
         this.jumpHeight = 83;
-        this. sprite ='images/char-cat-girl.png';
+        this. sprite ='images/grass-block.png';
         this.startX = this.stepWidth* 2;
         this.startY = (this.jumpHeight * 4) + 60;
         this.x = this.startX;
@@ -115,16 +119,52 @@ class Hero {
                 console.log(" same row");
                 console.log(" same column");
                 console.log("Hit");
-                this.x=this.startX;
+                let moves1=counter.innerHTML;
+                
+                
+                    moves1=0;
+                    this.x=this.startX;
                 this.y=this.startY;
+                    counter.innerHTML=moves1;
+               
             }
             
         }
-        console.log(this.y);
+        // console.log(this.y);
      if(this.y===-23){
             console.log("Win!");
+            let moves=counter.innerHTML;
+             
+            setTimeout(() => {
+             
+            moves++;
+            this.x=this.startX;
+            this.y=this.startY;
+            counter.innerHTML=moves;
+            
+            },1000);
+            
+            
+
         }
         // Check collision here // Did player x and y collide with enemy? // Check win here?// Did player x and y reach final tile?
+    }
+};
+
+class Gems {
+    constructor(){
+        this.x1 = 0;
+        this.y1 = 0;
+        this.stepWidth1 = 101;
+        this.jumpHeight1 = 83;
+        this. sprite1 ='images/Gem Blue.png';
+        this.startX1 = this.stepWidth1* 1;
+        this.startY1 = (this.jumpHeight1 * 2) + 60;
+        this.x1 = this.startX1;
+        this.y1 = this.startY1;
+    }
+    render () {
+        ctx.drawImage(Resources.get(this.sprite1), this.x1, this.y1);
     }
 };
 
@@ -195,7 +235,7 @@ function startGame(){
     modul1.classList.add("show");
     spieler.addEventListener("click", function spielerButton(e) {
         const target = e.target;
-        if(target.classList.contains("button1")){
+        if(target.classList.contains("buttonI")){
             console.log("Erste button");
             modul1.classList.remove("show");
             player.sprite=('images/char-boy.png');
@@ -218,21 +258,31 @@ function startGame(){
         }
     });
     
+    startButton();
+    
 }
 
+const player=new Hero();
+ const gem = new Gems();
 
 startGame();
-const player = new Hero();
-const cocinelle1 = new Enemy(-101,0,200);
-const cocinelle2 = new Enemy(-101,83,300);
-const cocinelle3 = new Enemy(-101,(83*2),300);
 
-allEnemies.push(cocinelle1);
-allEnemies.push(cocinelle2);
-allEnemies.push(cocinelle3);
+// gem.render;
+
 
 function startButton(){
-    
+    startKnopf.addEventListener("click", function startButton(e) {
+        let target=e.target;
+        if(target.classList.contains("startButton")){
+            // player;
+            const cocinelle1 = new Enemy(-101,0,200);
+            const cocinelle2 = new Enemy(-101,83,300);
+            const cocinelle3 = new Enemy(-101,(83*2),300);
+            allEnemies.push(cocinelle1);
+            allEnemies.push(cocinelle2);
+            allEnemies.push(cocinelle3);
+        }
+    });
 }
 
 document.addEventListener('keyup', function(e) {
