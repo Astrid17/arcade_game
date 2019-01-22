@@ -26,7 +26,7 @@ var hours = 0;
 let time = document.querySelector('.time');
 var h2 = document.querySelector("h2");
 let modul1 = document.getElementById("start");
-let player = document.querySelector(".player");
+let spieler= document.querySelector(".player");
 const allEnemies = [];
 
 function add() {
@@ -193,24 +193,36 @@ Enemy.prototype.render = function() {
 
 function startGame(){
     modul1.classList.add("show");
-    player.addEventListener("click", function playerButton(e) {
+    spieler.addEventListener("click", function spielerButton(e) {
         const target = e.target;
         if(target.classList.contains("button1")){
-            const player = new Hero();
-            Hero.sprite = 'images/char-boy.png';
+            console.log("Erste button");
             modul1.classList.remove("show");
-            
+            player.sprite=('images/char-boy.png');
+        }else if(target.classList.contains("button2")){
+            console.log("zweite button");
+            modul1.classList.remove("show");
+            player.sprite=('images/char-cat-girl.png');
+        }else if(target.classList.contains("button3")){
+            console.log("dritte button");
+            modul1.classList.remove("show");
+            player.sprite=('images/char-horn-girl.png');
+        }else if(target.classList.contains("button4")){
+            console.log("vier button");
+            modul1.classList.remove("show");
+            player.sprite=('images/char-pink-girl.png');
+        }else if(target.classList.contains("button5")){
+            console.log("fünfte button");
+            modul1.classList.remove("show");
+            player.sprite=('images/char-princess-girl.png');
         }
     });
-   
+    
 }
 
-/*const player1 = new Hero('images/char-cat-girl.png');
-const player2 = new Hero('images/char-boy.png');
-const player3 = new Hero('images/char-horn-girl.png');
-const player4 = new Hero('images/char-pink-girl.png');
-const player5 = new Hero('images/char-princess-girl.png');*/
+
 startGame();
+const player = new Hero();
 const cocinelle1 = new Enemy(-101,0,200);
 const cocinelle2 = new Enemy(-101,83,300);
 const cocinelle3 = new Enemy(-101,(83*2),300);
@@ -219,6 +231,9 @@ allEnemies.push(cocinelle1);
 allEnemies.push(cocinelle2);
 allEnemies.push(cocinelle3);
 
+function startButton(){
+    
+}
 
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {

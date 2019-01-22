@@ -154,11 +154,8 @@ var Engine = (function(global) {
             enemy.render();
         });
 
-        player1.render();
-        player2.render();
-        player3.render();
-        player4.render();
-        player5.render();
+        player.render();
+        
     }
 
     /* This function does nothing but it could have been a good place to
