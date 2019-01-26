@@ -155,7 +155,10 @@ var Engine = (function(global) {
         });
 
         player.render();
+        // allGems.forEach(function(gem) {
         gem.render();
+        // });
+        
         
     }
 

@@ -16,56 +16,19 @@
                 // Update player's x and y property according to input
             // Reset Hero
                 // Set x and y to starting x and y
-var timerCount;
-let timerPause = false;
-let timerStart = false;
-let delay = 1200;
-var seconds = 0;
-var minutes = 0;
-var hours = 0;
-let time = document.querySelector('.time');
+
+
 var h2 = document.querySelector("h2");
 let modul1 = document.getElementById("start");
+let modul2 = document.getElementById("win");
 let spieler= document.querySelector(".player");
 let startKnopf= document.querySelector(".startButton");
 const allEnemies = [];
 let counter = document.querySelector(".score");
-
+const allGems = [];
             
 
-function add() {
 
-    seconds++;
-    if (seconds >= 60) {
-        seconds = 0;
-        minutes++;
-        if (minutes >= 60) {
-            minutes = 0;
-            hours++;
-        }
-    }
-    h2.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
-
-    timer();
-}
-
-function timer() {
-
-    timerCount = setTimeout(add, 1000);
-    timerStart = true;
-}
-
-//Resets Timer 
-function clearTime() {
-
-    seconds = 0;
-    minutes = 0;
-    hours = 0;
-    h2.innerHTML = "00:00:00";
-
-
-}
-//  timer();
 
 
 class Hero {
@@ -133,15 +96,16 @@ class Hero {
         // console.log(this.y);
      if(this.y===-23){
             console.log("Win!");
+            
             let moves=counter.innerHTML;
-             
+            modul2.classList.add("show");
             setTimeout(() => {
-             
+                
             moves++;
             this.x=this.startX;
             this.y=this.startY;
             counter.innerHTML=moves;
-            
+            modul2.classList.remove("show");
             },1000);
             
             
@@ -151,21 +115,29 @@ class Hero {
     }
 };
 
-class Gems {
+class Gems  {
     constructor(){
         this.x1 = 0;
         this.y1 = 0;
         this.stepWidth1 = 101;
         this.jumpHeight1 = 83;
         this. sprite1 ='images/Gem Blue.png';
-        this.startX1 = this.stepWidth1* 1;
-        this.startY1 = (this.jumpHeight1 * 2) + 60;
-        this.x1 = this.startX1;
-        this.y1 = this.startY1;
+        this.startX = this.stepWidth1* 1;
+        this.startY = (this.jumpHeight1 * 0) + 60;
+        this.x1 = this.startX;
+        this.y1 = this.startY;
+       
     }
     render () {
         ctx.drawImage(Resources.get(this.sprite1), this.x1, this.y1);
     }
+    update(){
+        if(player.y===this.y1 && player.x===this.x1){
+            console.log("Collect");
+    
+        }
+    }
+    
 };
 
 
@@ -217,6 +189,7 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -263,11 +236,11 @@ function startGame(){
 }
 
 const player=new Hero();
- const gem = new Gems();
+const gem = new Gems();
 
 startGame();
 
-// gem.render;
+
 
 
 function startButton(){
@@ -276,15 +249,29 @@ function startButton(){
         if(target.classList.contains("startButton")){
             // player;
             const cocinelle1 = new Enemy(-101,0,200);
-            const cocinelle2 = new Enemy(-101,83,300);
+            const cocinelle2 = new Enemy(-101,83,400);
+            const cocinelle21 = new Enemy(-101,83,800);
             const cocinelle3 = new Enemy(-101,(83*2),300);
+            const cocinelle4 = new Enemy(-101,(83*2),500);
             allEnemies.push(cocinelle1);
             allEnemies.push(cocinelle2);
+            allEnemies.push(cocinelle21);
             allEnemies.push(cocinelle3);
+            allEnemies.push(cocinelle4);
         }
     });
 }
-
+function Restart(){
+    document.addEventListener("click", function reset(e){
+        let target=e.target;
+        if(target.classList.contains("restartButton")){
+            let restartScore=counter.innerHTML;
+            restartScore=0;
+            counter.innerHTML=restartScore;
+        }
+    });
+}
+Restart();
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',

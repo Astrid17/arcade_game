@@ -2,16 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Effective JavaScript: Frogger</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+        <div class="container" id="container">
+            </div>
     <section class="score-panel">
     Score:<span class="score"> 0 </span>
         <div class="startB">
                 <button class="startButton">Start</button>
+                <button class="restartButton">Restart</button>
         </div>
    
     </section>
@@ -40,9 +44,14 @@
             </div>
         </div>
     </div>
+    <div id="win" class="modul2">
+        <h1>You won !</h1>
+
+    </div>
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
+    <script src="js/ladybug.js"></script>
     
 </body>
 </html>
