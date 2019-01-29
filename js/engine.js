@@ -184,7 +184,9 @@ var Engine = (function(global) {
         'images/char-horn-girl.png',
         'images/char-pink-girl.png',
         'images/char-princess-girl.png',
-        'images/Gem Blue.png'
+        'images/Gem Blue.png',
+        'images/Gem Orange.png',
+        'images/Gem Green.png'
     ]);
     Resources.onReady(init);
 

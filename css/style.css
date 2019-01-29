@@ -58,6 +58,7 @@ body {
 .score {
     font-size: 35px; 
     color: lightgreen;
+    justify-content: space-between;
 }
 .timer {
     display: inline-block;
@@ -117,10 +118,12 @@ body {
 .startButton {
    font-size: 35px; 
     background-color: lightgreen;
+    justify-content: space-between;
 }
 .restartButton {
     font-size: 35px; 
      background-color: lightgreen;
+     justify-content: space-between;
  }
 
 .modul2 {
