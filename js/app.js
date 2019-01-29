@@ -96,7 +96,7 @@ class Hero {
 
 
         }
-//If collision with gem than hide gem
+        //If collision with gem than hide gem
         if (this.y === gem.y1 && this.x === gem.x1) {
             counter.innerHTML = parseInt(counter.innerHTML, 0) + 10;
             gem.x1 = -101;
@@ -106,7 +106,7 @@ class Hero {
         } else if (this.y === -23) {
 
             let moves = counter.innerHTML;
-            
+
             modul2.classList.add("show");
             setTimeout(() => {
                 moves++;
