@@ -1,6 +1,8 @@
 'use strict';
+//Code from Zack Ensign on  https://codepen.io/zensign/pen/RPoEPG
+
 let pi2 = Math.PI * 2;
-//Code von Zack Ensign    auf   https://codepen.io/zensign/pen/RPoEPG
+
 function Ladybug() {
     this.speed = .5,
         this.rotation = 0,

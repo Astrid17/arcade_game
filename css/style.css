@@ -5,18 +5,22 @@
     Creator................Astrid Deleersnyder
 
     CONTENTS
-    1. Global Style.........Global variables and styles
-    2. Deck of cards........Deck Styling
-    3. Match or Wrong.......Styling and rules
-    4. Score and Timer......Styling
-    5. Win modul............Styling
-    6. Media ...............Media queries
+    1. Global Style..........Body Style
+    2. Score Panel........ ..Styling
+    3. Start Modul...........Styling 
+    4. Win modul.............Styling
+    5. Ladybug Background....Styling
+    6. Media queries.........Styling
 
 
 
 
 *******************************************/
 
+
+/**********************
+1. Global Style
+**********************/
 html {
     box-sizing: border-box;
 }
@@ -50,6 +54,11 @@ body {
 
 }
 
+
+/**************
+2. Score Panel
+*************/
+
 .score-panel {
     text-align: center;
     width: 345px;
@@ -71,11 +80,9 @@ body {
     justify-content: space-between;
 }
 
-.timer {
-    display: inline-block;
-    margin: 0 1rem;
-    color: #e9e9f1;
-}
+/************
+3. Start Modul
+*************/
 
 .overlay {
     position: fixed;
@@ -141,6 +148,10 @@ body {
     justify-content: space-between;
 }
 
+/**********
+4. Win Modul
+***********/
+
 .modul2 {
     margin: 50px auto;
     padding: 20px 20px;
@@ -181,6 +192,10 @@ body {
     opacity: 100 !important;
 }
 
+
+/**********
+5. Ladybug Background
+************/
 .ladybug {
     width: 26px;
     height: 26px;
@@ -343,6 +358,9 @@ body {
     border-radius: 2px;
 }
 
+/*************
+6. Media queries
+*************/
 @media (max-width: 360px) {
     canvas {
         width: 300px;

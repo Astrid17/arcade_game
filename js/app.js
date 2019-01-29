@@ -6,40 +6,22 @@
 //    Creator..............Astrid Deleersnyder
 
 //    CONTENTS
-//    1. INITIALIZATION.JS
-//      1) Timer..........
-//      2) Deck ..........
-//      3) Click Event........
-//      4) Move Counter.......
-//      5) Stars Counter......
+//    1. LADYBUG.JS
+//       Walking ladybugs background
+//       Code from  Zack Ensign  on https://codepen.io/zensign/pen/RPoEPG
 
 //    2. APP.JS
-//      1) Shuffle..........
-//      2) Toggle...........
-//      3) Match or Wrong...
-//      4) Congratulation...
-//      5) Restart.........
+//      1) Hero initialization..........
+//      2) Gem  initialization...........
+//      3) Enemy initialization...
+//      4) Start Game Function...
+//      5) Start Button Function.........
+//      6) Restart Button Function.........
+//      7) Reset Game Function.........
+//      8) Keyup Event Listener Function.........
 
 ///////////////////////////////////////////////
-// Hero class
-// Constructor
-// Properties
-// x pos
-// y pos
-// Sprite image
-// Methods
-// Update collision 
-// Check collision here
-// Did player x and y collide with enemy?
-// Check win here?
-// Did player x and y reach final tile?
-// Render
-// Draw player sprite on current x and y coord position
-// Handle keyboard input
-// Update player's x and y property according to input
-// Reset Hero
-// Set x and y to starting x and y
-// var h2 = document.querySelector("h2");
+
 let modul1 = document.getElementById("start");
 let modul2 = document.getElementById("win");
 let spieler = document.querySelector(".player");
@@ -52,7 +34,7 @@ let x1;
 let y1;
 
 
-
+// 1) Hero initialization
 
 class Hero {
     constructor() {
@@ -72,6 +54,7 @@ class Hero {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
+    // Defines how the player moves
     handleInput(input) {
         if (input === 'right') {
             if (this.x < this.stepWidth * 4) {
@@ -94,15 +77,13 @@ class Hero {
 
         }
     }
+    //Defines collision with Enemy and Gem
     update() {
 
         for (let enemy of allEnemies) {
 
             if (this.y === enemy.y && enemy.x < this.x && this.x < enemy.x + 101) {
 
-                // console.log(" same row");
-                // console.log(" same column");
-                // console.log("Hit");
                 let moves1 = counter.innerHTML;
 
 
@@ -115,18 +96,17 @@ class Hero {
 
 
         }
-
+//If collision with gem than hide gem
         if (this.y === gem.y1 && this.x === gem.x1) {
-            // console.log("collect");
             counter.innerHTML = parseInt(counter.innerHTML, 0) + 10;
             gem.x1 = -101;
             gem.y1 = -101;
 
+            //Defines Win when player in water is
         } else if (this.y === -23) {
-            // console.log("Win!");
 
             let moves = counter.innerHTML;
-
+            
             modul2.classList.add("show");
             setTimeout(() => {
                 moves++;
@@ -144,11 +124,10 @@ class Hero {
 
         }
 
-
-        // Check collision here // Did player x and y collide with enemy? // Check win here?// Did player x and y reach final tile?
     }
 };
 
+// 2) Gem Initialization
 class Gems {
     constructor() {
         this.x1 = 0;
@@ -170,7 +149,7 @@ class Gems {
 };
 
 
-// Enemies our player must avoid
+//  3) Enemy initialization
 
 let Enemy = function(x, y, speed) {
 
@@ -182,23 +161,11 @@ let Enemy = function(x, y, speed) {
     this.boundary = this.stepWidth * 5;
     this.resetPos = -this.stepWidth;
 
-
-
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
-
 };
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
 
     if (this.x < this.boundary) {
         this.x += this.speed * dt;
@@ -218,42 +185,25 @@ Enemy.prototype.render = function() {
 };
 
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
-
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-
-
-
-// This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
-
+// 4) Start Game Function
+// User can choose which player he wants to play
 function startGame() {
     modul1.classList.add("show");
     spieler.addEventListener("click", function spielerButton(e) {
         const target = e.target;
         if (target.classList.contains("buttonI")) {
-            // console.log("Erste button");
             modul1.classList.remove("show");
             player.sprite = ('images/char-boy.png');
         } else if (target.classList.contains("button2")) {
-            // console.log("zweite button");
             modul1.classList.remove("show");
             player.sprite = ('images/char-cat-girl.png');
         } else if (target.classList.contains("button3")) {
-            // console.log("dritte button");
             modul1.classList.remove("show");
             player.sprite = ('images/char-horn-girl.png');
         } else if (target.classList.contains("button4")) {
-            // console.log("vier button");
             modul1.classList.remove("show");
             player.sprite = ('images/char-pink-girl.png');
         } else if (target.classList.contains("button5")) {
-            // console.log("fünfte button");
             modul1.classList.remove("show");
             player.sprite = ('images/char-princess-girl.png');
         }
@@ -272,7 +222,8 @@ startGame();
 
 
 
-
+// 5) Start Button Function
+//If Start Button clicked than Bugs are walking
 function startButton() {
     startKnopf.addEventListener("click", function startButton(e) {
         let target = e.target;
@@ -291,6 +242,8 @@ function startButton() {
     });
 }
 
+// 6) Restart Button Function
+//Resets Counter
 function Restart() {
     document.addEventListener("click", function reset(e) {
         let target = e.target;
@@ -303,11 +256,15 @@ function Restart() {
 }
 Restart();
 
+// 7) Reset Gem Function
+//Reset Gem on a random position and color
 function resetGem() {
     gem.x1 = Math.floor(Math.random() * 5) * 101;
     gem.y1 = Math.floor(Math.random() * 4) * 83 + 60;
     gem.sprite1 = allGems[Math.floor(Math.random() * 3)];
 };
+
+// 8) Keyup Event Listener Function
 document.addEventListener('keyup', function(e) {
     let allowedKeys = {
         37: 'left',
