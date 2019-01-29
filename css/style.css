@@ -1,3 +1,22 @@
+/***********************************
+
+    INFORMATION
+    Project................Arcade Game (Udacity Front-End Nanodegree Programm
+    Creator................Astrid Deleersnyder
+
+    CONTENTS
+    1. Global Style.........Global variables and styles
+    2. Deck of cards........Deck Styling
+    3. Match or Wrong.......Styling and rules
+    4. Score and Timer......Styling
+    5. Win modul............Styling
+    6. Media ...............Media queries
+
+
+
+
+*******************************************/
+
 html {
     box-sizing: border-box;
 }
@@ -28,61 +47,55 @@ body {
     height: 100%;
     overflow: hidden;
     z-index: -1;
-     /* background: #83c783;  */
-    background: transparent; 
-    /*background: -moz-radial-gradient(center, ellipse cover,  #83c783 0%, #52b152 29%, #008a00 55%, #005700 84%, #004400 96%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#83c783), color-stop(29%,#52b152), color-stop(55%,#008a00), color-stop(84%,#005700), color-stop(96%,#004400));
-    background: -webkit-radial-gradient(center, ellipse cover,  #83c783 0%,#52b152 29%,#008a00 55%,#005700 84%,#004400 96%);
-    background: -o-radial-gradient(center, ellipse cover,  #83c783 0%,#52b152 29%,#008a00 55%,#005700 84%,#004400 96%);
-    background: -ms-radial-gradient(center, ellipse cover,  #83c783 0%,#52b152 29%,#008a00 55%,#005700 84%,#004400 96%);
-    background: radial-gradient(ellipse at center,  #83c783 0%,#52b152 29%,#008a00 55%,#005700 84%,#004400 96%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#83c783', endColorstr='#004400',GradientType=1 );*/
-  
-  }
-  
+
+}
+
 .score-panel {
     text-align: center;
     width: 345px;
-     margin-bottom: 10px;  
-    
-    font-size: 35px;  
-    color:  lightgreen;
+    margin-bottom: 10px;
+
+    font-size: 35px;
+    color: lightgreen;
     display: flex;
-    
+
     flex-direction: row;
     justify-content: space-between;
-   
+
 }
 
 
 .score {
-    font-size: 35px; 
+    font-size: 35px;
     color: lightgreen;
     justify-content: space-between;
 }
+
 .timer {
     display: inline-block;
     margin: 0 1rem;
     color: #e9e9f1;
 }
+
 .overlay {
-     position: fixed; 
-     top: 0;
-     bottom: 0;
-     left: 0;
-     right: 0;
-     /* background: white; */
-     transition: opacity 500ms;visibility: hidden; 
-     opacity: 0; 
-     flex-direction: row; 
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: row;
 }
 
- .overlay:target { 
-     visibility: visible; 
-     opacity: 1; 
- } 
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+}
+
 .player {
-    display: flex; 
+    display: flex;
     flex-direction: row;
     justify-content: center;
 }
@@ -90,75 +103,79 @@ body {
 .modul1 {
     margin: 80px auto;
     padding: 20px 20px;
-    background:green;
+    background: green;
     border-radius: 5px;
     width: 80%;
     height: 80%;
     position: relative;
     transition: all 5s ease-in-out;
     font-family: 'Gloria Hallelujah', cursive;
-    text-align: center;  
-    
+    text-align: center;
+
     align-content: center;
-    
+
 }
+
 .modul1 h1 {
     margin-top: 0;
-    color:black;
+    color: black;
     font-family: Tahoma, Arial, sans-serif;
 }
 
 .modul1 .player {
     text-align: center;
     vertical-align: middle;
-    
+
 }
 
 
 .startButton {
-   font-size: 35px; 
+    font-size: 35px;
     background-color: lightgreen;
     justify-content: space-between;
 }
+
 .restartButton {
-    font-size: 35px; 
-     background-color: lightgreen;
-     justify-content: space-between;
- }
+    font-size: 35px;
+    background-color: lightgreen;
+    justify-content: space-between;
+}
 
 .modul2 {
     margin: 50px auto;
     padding: 20px 20px;
-    background:transparent;
+    background: transparent;
     border-radius: 5px;
     width: 40%;
     height: 30%;
     position: relative;
     transition: all 5s ease-in-out;
     font-family: 'Gloria Hallelujah', cursive;
-    text-align: center;  
-    
+    text-align: center;
+
     align-content: center;
-    position: fixed; 
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    /* background: white; */
     transition: opacity 500ms;
-    visibility: hidden; 
-    opacity: 0; 
-    flex-direction: row; 
+    visibility: hidden;
+    opacity: 0;
+    flex-direction: row;
 }
-.modul2:target { 
-    visibility: visible; 
-    opacity: 1; 
-} 
+
+.modul2:target {
+    visibility: visible;
+    opacity: 1;
+}
+
 .modul2 h1 {
     margin-top: 0;
-    color:white;
+    color: white;
     font-family: Tahoma, Arial, sans-serif;
 }
+
 .show {
     visibility: visible !important;
     opacity: 100 !important;
@@ -175,9 +192,9 @@ body {
     background: #000;
     border-radius: 25px;
     box-shadow: 0 1px 8px 3px rgba(0, 0, 0, 0.3);
-  }
-  
-  .ladybug:before {
+}
+
+.ladybug:before {
     width: 15px;
     height: 30px;
     display: block;
@@ -189,9 +206,9 @@ body {
     background: #ca1414;
     border-radius: 25px 0 0 25px;
     transform: rotate(-5deg);
-  }
-  
-  .ladybug:after {
+}
+
+.ladybug:after {
     width: 15px;
     height: 30px;
     display: block;
@@ -206,9 +223,9 @@ body {
     -moz-transform: rotate(5deg);
     -o-transform: rotate(5deg);
     transform: rotate(5deg);
-  }
-  
-  .ladybug i {
+}
+
+.ladybug i {
     display: block;
     position: absolute;
     bottom: -8px;
@@ -219,9 +236,9 @@ body {
     height: 10px;
     background: #000;
     border-radius: 5px;
-  }
-  
-  .ladybug i:before {
+}
+
+.ladybug i:before {
     display: block;
     position: absolute;
     content: '';
@@ -233,9 +250,9 @@ body {
     border-bottom: solid 1px #000;
     border-right: solid 1px #000;
     border-radius: 6px;
-  }
-  
-  .ladybug i:after {
+}
+
+.ladybug i:after {
     display: block;
     position: absolute;
     content: '';
@@ -248,9 +265,9 @@ body {
     border-bottom: solid 1px #000;
     border-left: solid 1px #000;
     border-radius: 6px;
-  }
-  
-  .ladybug span:first-child {
+}
+
+.ladybug span:first-child {
     display: block;
     position: absolute;
     left: 0;
@@ -260,9 +277,9 @@ body {
     height: 4px;
     background: #000;
     border-radius: 2px;
-  }
-  
-  .ladybug span:first-child:before {
+}
+
+.ladybug span:first-child:before {
     display: block;
     position: absolute;
     content: '';
@@ -273,9 +290,9 @@ body {
     height: 4px;
     background: #000;
     border-radius: 2px;
-  }
-  
-  .ladybug span:first-child:after {
+}
+
+.ladybug span:first-child:after {
     display: block;
     position: absolute;
     content: '';
@@ -286,9 +303,9 @@ body {
     height: 4px;
     background: #000;
     border-radius: 2px;
-  }
-  
-  .ladybug span:last-child {
+}
+
+.ladybug span:last-child {
     display: block;
     position: absolute;
     right: 0;
@@ -298,9 +315,9 @@ body {
     height: 4px;
     background: #000;
     border-radius: 2px;
-  }
-  
-  .ladybug span:last-child:before {
+}
+
+.ladybug span:last-child:before {
     display: block;
     position: absolute;
     content: '';
@@ -311,9 +328,9 @@ body {
     height: 4px;
     background: #000;
     border-radius: 2px;
-  }
-  
-  .ladybug span:last-child:after {
+}
+
+.ladybug span:last-child:after {
     display: block;
     position: absolute;
     content: '';
@@ -324,63 +341,72 @@ body {
     height: 4px;
     background: #000;
     border-radius: 2px;
-  }
+}
 
-  @media (max-width: 360px){
-      canvas {
+@media (max-width: 360px) {
+    canvas {
         width: 300px;
         height: 350px;
-      }
-      .score-panel {
+    }
+
+    .score-panel {
         width: 100px;
         height: 50px;
         display: flex;
         text-align: center;
-    flex-direction: row;
-    justify-content: space-between;
+        flex-direction: row;
+        justify-content: space-between;
         font-size: 14px;
     }
+
     .startButton {
-        font-size: 25px; 
-         
-     }
-     .restartButton {
-         font-size: 25px; 
-          
-      }
-    .player{
+        font-size: 25px;
+
+    }
+
+    .restartButton {
+        font-size: 25px;
+
+    }
+
+    .player {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
+
     .modul1 {
         height: 80%;
         width: 80%;
-        
-    }
-    .modul1 h1 {
-        font-size: 1.5em; 
-    }
-    .buttonI{
-        width: 60px;
-        height: 100px;
-    }
-    .button2{
-        width: 60px;
-        height: 100px;
-    }
-    .button3{
-        width: 60px;
-        height: 100px;
-    }
-    .button4{
-        width: 60px;
-        height: 100px;
-    }
-    .button5{
-        width: 60px;
-        height: 100px;
-    }
-  }
 
-  
+    }
+
+    .modul1 h1 {
+        font-size: 1.5em;
+    }
+
+    .buttonI {
+        width: 60px;
+        height: 100px;
+    }
+
+    .button2 {
+        width: 60px;
+        height: 100px;
+    }
+
+    .button3 {
+        width: 60px;
+        height: 100px;
+    }
+
+    .button4 {
+        width: 60px;
+        height: 100px;
+    }
+
+    .button5 {
+        width: 60px;
+        height: 100px;
+    }
+}
