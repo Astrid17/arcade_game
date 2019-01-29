@@ -1,12 +1,16 @@
 Arcade Game
 
-<<<<<<< HEAD
-In this game, you have a player and enemies(bugs). To win the game you have to not collide with the vugs and you have to reach the water besides that you can also collect one game to have 10 point more. You can play the game as long as you like and if you want to restart the score just click on the restart button.
+. In this game, you have a player and enemies(bugs). 
 
-![picture1](images/arcade1.png)
-![picture2](images/arcade2.png)
-=======
-In this game, you have a player and enemies(bugs). To win the game you have to not collide with the vugs and you have to reach the water besides that you can also collect one game to have  10 point more. You can play the game as long as you like and if you want to restart the score just click on the restart button.
+. First you have to choose which player you want to play.
+
+. Second to start the game you have to press the button Start.
+
+. Then, to move the player use keys Arrow up, left,right,down.
+
+. To win the game you have to not collide with the bugs and you have to reach the water , besides that , you can also collect one gem to have  10 point more. 
+
+. You can play the game as long as you like and if you want to restart the score just click on the restart button.
 
 ![picture](images/arcade1.png)
 ![picture](images/arcade2.png)

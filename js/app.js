@@ -228,16 +228,13 @@ function startButton() {
     startKnopf.addEventListener("click", function startButton(e) {
         let target = e.target;
         if (target.classList.contains("startButton")) {
-            const cocinelle1 = new Enemy(-101, 0, 200);
-            const cocinelle2 = new Enemy(-101, 83, 50);
-            const cocinelle21 = new Enemy(-101, 83, 300);
-            const cocinelle3 = new Enemy(-101, (83 * 2), 250);
-            const cocinelle4 = new Enemy(-101, (83 * 2), 150);
-            allEnemies.push(cocinelle1);
-            allEnemies.push(cocinelle2);
-            allEnemies.push(cocinelle21);
-            allEnemies.push(cocinelle3);
-            allEnemies.push(cocinelle4);
+            allEnemies = [
+                new Enemy(-101, 0, 200),
+                new Enemy(-101, 83, 50),
+                new Enemy(-101, 83, 300),
+                new Enemy(-101, (83 * 2), 250),
+                new Enemy(-101, (83 * 2), 150)
+            ];
         }
     });
 }
